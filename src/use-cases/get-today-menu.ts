@@ -1,33 +1,23 @@
-import { load } from 'cheerio'
+import { Menu, MenuRepository } from '@/repositories/menu-repository'
+import { MenuNotFoundError } from './errors/menu-not-found.error'
 
-import { instance } from '../lib/axios'
-
-interface Menu {
-  main: string[]
-  vegetarian: string
+interface GetTodayMenuUseCaseRequest {
+  restaurant: string
 }
 
+interface GetTodayMenuUseCaseResponse {
+  menu: Menu
+}
 export class GetTodayMenuUseCase {
-  async execute() {
-    const { data } = await instance.get('/')
+  constructor(private menuRepository: MenuRepository) {}
 
-    const $ = load(data)
+  async execute({
+    restaurant,
+  }: GetTodayMenuUseCaseRequest): Promise<GetTodayMenuUseCaseResponse> {
+    const menu = await this.menuRepository.getTodayMenu(restaurant)
 
-    const menu: Menu = {
-      main: [],
-      vegetarian: '',
-    }
-
-    $('.almoco .principal > .desc').each((_, element) => {
-      menu.main.push($(element).text())
-    })
-
-    $('.almoco .vegetariano > .desc').each((_, element) => {
-      menu.vegetarian = $(element).text()
-    })
-
-    if (menu.main.length === 0) {
-      throw new Error('Menu not found.')
+    if (!menu) {
+      throw new MenuNotFoundError()
     }
 
     return {
