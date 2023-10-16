@@ -45,5 +45,5 @@ export const restaurants = [
 
 export interface MenuRepository {
   getTodayMenu(restaurantName: string): Promise<Menu | null>
-  findMenuByDate(restaurantName: string, date: Date): Promise<Menu | null>
+  findMenuByDate(restaurantName: string, date: string): Promise<Menu | null>
 }
