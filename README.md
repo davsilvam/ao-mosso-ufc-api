@@ -13,7 +13,7 @@
 
 ## :plate_with_cutlery: **Sobre o Projeto**
 
-Essa é uma API que fornece as refeições ofertadas pelos Restaurantes Universitários da Universidade Federal do Ceará. 
+Essa é uma API que fornece as refeições ofertadas pelos [Restaurantes Universitários](https://www.ufc.br/restaurante) da Universidade Federal do Ceará. 
 
 ## :file_folder: Rotas do Projeto
 
