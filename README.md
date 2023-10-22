@@ -1,8 +1,8 @@
 # Ao Mosso UFC
 
 ## :bookmark: **Sumário**
-- [Sobre o Projeto](#film_strip-sobre-o-projeto)
-- [Rotas do Projeto](#art-visual-do-projeto)
+- [Sobre o Projeto](#plate_with_cutlery-sobre-o-projeto)
+- [Rotas do Projeto](#file_folder-rotas-do-projeto)
 - [Tecnologias](#wrench-tecnologias)
    - [Construção da API](#construção-da-api)
    - [Testes](#testes)
@@ -11,9 +11,14 @@
      - [Requisitos](#requisitos)
 - [Licença](#balance_scale-licença)
 
-## :film_strip: **Sobre o Projeto**
+## :plate_with_cutlery: **Sobre o Projeto**
 
 Essa é uma API que fornece as refeições ofertadas pelos Restaurantes Universitários da Universidade Federal do Ceará. 
+
+## :file_folder: Rotas do Projeto
+
+> - **`GET` /{:restaurant}** _Obtém o cardápio do dia do restaurante pesquisado._
+> - **`GET` /{:restaurant}/{:date}** _Obtém o cardápio da data especificada do restaurante pesquisado._
 
 ## :wrench: **Tecnologias**
 
@@ -44,9 +49,10 @@ Tecnologias utilizadas no projeto.
 ### Requisitos
 
 - [Node](https://nodejs.org/) e [pnpm](https://pnpm.io/pt/).
+- Teste das chamadas realizados com [HTTPie](https://httpie.io/desktop).
 
 ```sh
-# Caso não tenha o pnpm execute:
+# Caso não tenha o pnpm, execute:
 npm install -g pnpm
 ```
 
@@ -59,11 +65,17 @@ git clone https://github.com/davsilvam/ao-mosso-ufc-api.git
 # Instalando as dependências
 pnpm install
 
-# Compilar e abrir o programa para desenvolvimento
-pnpm run start:dev
+# Rodar o servidor em desenvolvimento
+pnpm start:dev
+
+# Iniciar testes
+pnpm test
 
 # Compilar e minificar para produção
-pnpm run build
+pnpm build
+
+# Rodar o servidor em produção
+pnpm start
 ```
 
 ## :balance_scale: **Licença**
